@@ -17,7 +17,7 @@ I would like to see a list of links on the homepage
 
 As a user
 So that I can save a website
-I would like to add the site's address and title to bookmark manager
+I would like to enter and submit it to be saved to bookmark manager
 
 As a user
 So that I can keep the content clean and relevant

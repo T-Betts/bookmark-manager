@@ -9,5 +9,12 @@ class BookmarkManager < Sinatra::Base
     erb(:index)
   end
 
+  post '/new_link' do
+    url = params[:url]
+    connection = PG.connect(dbname: 'bookmark_manager')
+    connection.exec("INSERT INTO links (url) VALUES('#{url}')")
+    redirect('/')
+  end
+
   run! if app_file == $0
 end

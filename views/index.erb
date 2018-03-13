@@ -10,6 +10,14 @@
         <%= link %>
         <br>
         <% end %>
+        <br>
+        <form action="/new_link" method="post">
+          <label for="url">
+            Enter URL
+          <input type="text" name="url">
+          </label>
+          <input type="submit" value="Submit">
+        </form>
     <ul>
   </body>
 </html>
