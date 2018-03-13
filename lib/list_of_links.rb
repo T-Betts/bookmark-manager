@@ -1,16 +1,12 @@
 # list of links
-require 'pg'
+require_relative './database_connection_setup.rb'
 
 class Links
   attr_reader :links
 
   def self.all
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'bookmark_manager_test')
-    else
-      connection = PG.connect(dbname: 'bookmark_manager')
-    end
-    result = connection.exec("SELECT * FROM links")
+    # moved if else connection into database_connection_setup.rb
+    result = DatabaseConnection.query("SELECT * FROM links")
     result.map { |link| link['url'] }
     # @links = ["http://www.makersacademy.com",
     #           "http://www.google.com",
@@ -18,12 +14,8 @@ class Links
   end
 
   def self.create(url)
-    if ENV['ENVIRONMENT'] == 'test'
-      connection = PG.connect(dbname: 'bookmark_manager_test')
-    else
-      connection = PG.connect(dbname: 'bookmark_manager')
-    end
-    connection.exec("INSERT INTO links (url) VALUES('#{url}')")
+    DatabaseConnection.query("INSERT INTO links (url) VALUES('#{url}')")
+    # '#{options[:url]}'
   end
 
 end
