@@ -2,11 +2,7 @@
 require 'pg'
 
 class Links
-  attr_reader :links, :url
-
-  def initialize(url)
-    @url = url
-  end
+  attr_reader :links
 
   def self.all
     if ENV['ENVIRONMENT'] == 'test'
@@ -19,6 +15,15 @@ class Links
     # @links = ["http://www.makersacademy.com",
     #           "http://www.google.com",
     #           "http://www.facebook.com"]
+  end
+
+  def self.create(url)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'bookmark_manager_test')
+    else
+      connection = PG.connect(dbname: 'bookmark_manager')
+    end
+    connection.exec("INSERT INTO links (url) VALUES('#{url}')")
   end
 
 end
