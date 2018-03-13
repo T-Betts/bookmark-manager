@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/alexmccarroll/MakersWork/week-4/bookmark-manager/app.rb": [
+      "/Users/thomasbetts/Makers-Academy/week-4/bookmark-manager/app.rb": [
         1,
         1,
         null,
@@ -9,19 +9,19 @@
         1,
         null,
         1,
-        2,
-        2,
+        1,
+        1,
         null,
         null,
         1,
         1,
-        1,
+        0,
         null,
         null,
         1,
         null
       ],
-      "/Users/alexmccarroll/MakersWork/week-4/bookmark-manager/lib/list_of_links.rb": [
+      "/Users/thomasbetts/Makers-Academy/week-4/bookmark-manager/lib/list_of_links.rb": [
         null,
         1,
         null,
@@ -29,13 +29,13 @@
         1,
         null,
         1,
-        4,
-        4,
+        3,
+        3,
         null,
         0,
         null,
-        4,
-        20,
+        3,
+        13,
         null,
         null,
         null,
@@ -52,7 +52,7 @@
         null,
         null
       ],
-      "/Users/alexmccarroll/MakersWork/week-4/bookmark-manager/spec/features/add_link_spec.rb": [
+      "/Users/thomasbetts/Makers-Academy/week-4/bookmark-manager/spec/features/add_link_spec.rb": [
         1,
         1,
         1,
@@ -62,7 +62,7 @@
         null,
         null
       ],
-      "/Users/alexmccarroll/MakersWork/week-4/bookmark-manager/spec/list_of_links_spec.rb": [
+      "/Users/thomasbetts/Makers-Academy/week-4/bookmark-manager/spec/list_of_links_spec.rb": [
         1,
         null,
         1,
@@ -81,7 +81,7 @@
         null,
         null
       ],
-      "/Users/alexmccarroll/MakersWork/week-4/bookmark-manager/spec/test_database_setup.rb": [
+      "/Users/thomasbetts/Makers-Academy/week-4/bookmark-manager/spec/test_database_setup.rb": [
         1,
         null,
         1,
@@ -97,6 +97,6 @@
         1
       ]
     },
-    "timestamp": 1520954040
+    "timestamp": 1520954493
   }
 }
