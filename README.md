@@ -16,8 +16,8 @@ I would like to see a list of links on the homepage
 
 
 As a user
-So that I can expand the content of the webpage
-I would like to add new links
+So that I can save a website
+I would like to add the site's address and title to bookmark manager
 
 As a user
 So that I can keep the content clean and relevant
