@@ -1,9 +1,9 @@
-require 'list_of_links'
+require 'link'
 
-describe Links do
+describe Link do
   describe '#self.all' do
     it 'user can see links' do
-      links = Links.all
+      links = Link.all
       expect(links).to include "http://www.makersacademy.com"
       expect(links).to include "http://www.google.com"
       expect(links).to include "http://www.facebook.com"
@@ -12,8 +12,8 @@ describe Links do
 
   describe '#self.create' do
     it 'creates a new link' do
-      Links.create('https://www.bbc.co.uk')
-      expect(Links.all).to include 'https://www.bbc.co.uk'
+      Link.create('https://www.bbc.co.uk')
+      expect(Link.all).to include 'https://www.bbc.co.uk'
     end
   end
 
