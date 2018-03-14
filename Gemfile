@@ -6,6 +6,7 @@ gem 'capybara'
 gem 'pg'
 gem 'rspec'
 gem 'sinatra'
+gem 'rake'
 
 gem 'simplecov', require: false
   gem 'simplecov-console', require: false

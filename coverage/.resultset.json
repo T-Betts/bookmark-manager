@@ -28,7 +28,7 @@
         1,
         1,
         4,
-        20,
+        18,
         null,
         null,
         1,
@@ -57,6 +57,41 @@
         1,
         7,
         null,
+        null
+      ],
+      "/Users/thomasbetts/Makers-Academy/week-4/bookmark-manager/Rakefile": [
+        1,
+        null,
+        1,
+        5,
+        null,
+        5,
+        null,
+        null,
+        5,
+        null,
+        null,
+        5,
+        5,
+        5,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        0,
         null
       ],
       "/Users/thomasbetts/Makers-Academy/week-4/bookmark-manager/spec/database_connection_spec.rb": [
@@ -111,23 +146,8 @@
         null,
         null,
         null
-      ],
-      "/Users/thomasbetts/Makers-Academy/week-4/bookmark-manager/spec/test_database_setup.rb": [
-        1,
-        null,
-        1,
-        null,
-        1,
-        null,
-        null,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1
       ]
     },
-    "timestamp": 1521036312
+    "timestamp": 1521043433
   }
 }
