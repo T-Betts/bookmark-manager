@@ -15,11 +15,7 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/new_link' do
-    if params[:url] =~ /\A#{URI::regexp}\z/
-      Link.create(params[:url])
-    else
-      flash[:notice] = "Error: Invalid URL. Please try again."
-    end
+    flash[:notice] = "Error: Invalid URL. Please try again." unless Link.create(params[:url])
     redirect('/')
   end
 

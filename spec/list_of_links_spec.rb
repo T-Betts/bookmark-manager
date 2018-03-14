@@ -15,6 +15,10 @@ describe Link do
       Link.create('https://www.bbc.co.uk')
       expect(Link.all).to include 'https://www.bbc.co.uk'
     end
-  end
 
+    it 'does not add invalid links' do
+      Link.create('hello')
+      expect(Link.all).not_to include "hello"
+    end
+  end
 end
