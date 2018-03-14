@@ -7,6 +7,7 @@ gem 'pg'
 gem 'rspec'
 gem 'sinatra'
 gem 'rake'
+gem 'sinatra-flash'
 
 gem 'simplecov', require: false
   gem 'simplecov-console', require: false
