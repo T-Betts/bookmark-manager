@@ -1,7 +1,11 @@
 feature 'Updating a link' do
   scenario 'user can update link' do
     link = Link.create(url: 'http://testexample.com', title: 'Test Link')
-    visit("/update-link/#{link.id}")
+    visit("/")
+
+    within "#link-#{link.id}" do
+      click_button 'Update'
+    end
 
     fill_in('url', with: 'http://www.snakersacademy.com')
     fill_in('title', with: 'Snakers Academy')
