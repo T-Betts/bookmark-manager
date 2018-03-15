@@ -2,17 +2,25 @@ require 'uri'
 require_relative './database_connection_setup.rb'
 
 class Link
+  attr_reader :id, :url, :title
+  def initialize(id, url, title)
+    @id = id
+    @url = url
+    @title = title
+  end
+
   def self.all
     result = DatabaseConnection.query("SELECT * FROM links")
-    result.map { |link| link['url'] }
+    result.map { |link| Link.new(link['id'], link['url'], link['title']) }
   end
 
   def self.link_valid?(url)
     url =~ /\A#{URI::regexp}\z/
   end
 
-  def self.create(url)
-    return false unless link_valid?(url)
-    DatabaseConnection.query("INSERT INTO links (url) VALUES('#{url}')")
+  def self.create(options)
+    return false unless link_valid?(options[:url])
+    res = DatabaseConnection.query("INSERT INTO links (url, title) VALUES('#{options[:url]}', '#{options[:title]}') RETURNING id, url, title")
+    Link.new(res[0]['id'], res[0]['url'], res[0]['title'])
   end
 end

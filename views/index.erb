@@ -7,14 +7,19 @@
   <body>
     <ul>
       <% @links.each do |link| %>
-        <a href="<%=link%>" class="button"><%=link%></a>
+        <a href="<%=link.url%>" class="button">
+        <li id="link-<%=link.id%>"><%=link.title%></li></a>
         <br>
         <% end %>
         <br>
         <form action="/new_link" method="post">
           <label for="url">
             Enter URL
-          <input type="text" name="url">
+            <input type="text" name="url">
+          </label>
+          <label for="title">
+            Enter Link Title
+            <input type="text" name="title">
           </label>
           <input type="submit" value="Submit">
         </form>

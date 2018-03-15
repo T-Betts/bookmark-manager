@@ -13,7 +13,8 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/new_link' do
-    flash[:notice] = "Error: Invalid URL. Please try again." unless Link.create(params[:url])
+    link = Link.create(url: params['url'], title: params['title'])
+    flash[:notice] = "Error: Invalid URL. Please try again." unless link
     redirect('/')
   end
 

@@ -9,19 +9,23 @@ task :test_database_setup do
   connection.exec("TRUNCATE links;")
 
   #Add the test data
-  connection.exec("INSERT INTO links VALUES(1, 'http://www.makersacademy.com');")
-  connection.exec("INSERT INTO links VALUES(2, 'http://www.google.com');")
-  connection.exec("INSERT INTO links VALUES(3, 'http://www.facebook.com');")
+  connection.exec("INSERT INTO links (url, title) VALUES('http://www.makersacademy.com', 'Makers Academy');")
+  connection.exec("INSERT INTO links (url, title) VALUES('http://www.google.com', 'Google');")
+  connection.exec("INSERT INTO links (url, title) VALUES('http://www.facebook.com', 'Facebook');")
 end
 
 task :setup do
   p "Creating databases..."
 
   ['bookmark_manager', 'bookmark_manager_test'].each do |database|
-    connection = PG.connect
-    connection.exec("CREATE DATABASE #{ database };")
-    connection = PG.connect(dbname: database)
-    connection.exec("CREATE TABLE links(id SERIAL PRIMARY KEY, url VARCHAR(60));")
+    begin
+      connection = PG.connect
+      connection.exec("CREATE DATABASE #{ database };")
+      connection = PG.connect(dbname: database)
+      connection.exec("CREATE TABLE links(id SERIAL PRIMARY KEY, url VARCHAR(60), title VARCHAR(60));")
+    rescue
+      puts "Error: #{database} already exists"
+    end
   end
 end
 
