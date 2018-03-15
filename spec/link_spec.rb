@@ -27,4 +27,29 @@ describe Link do
       expect(urls).not_to include "hello"
     end
   end
+
+  describe '#self.delete' do
+    it "should delete a link" do
+      link = Link.create(url: 'https://youtube.com', title: 'Youtube')
+      Link.delete(link.id)
+      links = Link.all
+      urls = links.map(&:url)
+      expect(urls).not_to include('https://youtube.com')
+    end
+  end
+
+  describe '#self.update' do
+    it "updates a link" do
+      link = Link.create(url: 'https://youtube.com', title: 'Youtube')
+      Link.update(link.id, url: 'http://www.notyoutube.com', title: 'Not Youtube')
+      links = Link.all
+      urls = links.map(&:url)
+      titles = links.map(&:title)
+
+      expect(urls).not_to include "https://youtube.com"
+      expect(titles).not_to include "Youtube"
+      expect(urls).to include "http://www.notyoutube.com"
+      expect(titles).to include "Not Youtube"
+    end
+  end
 end
