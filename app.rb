@@ -1,13 +1,11 @@
 require 'sinatra/base'
 require './lib/link.rb'
-require_relative './lib/database_connection_setup.rb'
 require 'uri'
 require 'sinatra/flash'
 
 class BookmarkManager < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
-
 
   get '/' do
     @links = Link.all
