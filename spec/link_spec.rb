@@ -52,4 +52,14 @@ describe Link do
       expect(titles).to include "Not Youtube"
     end
   end
+
+  describe '.find' do
+    it 'finds a link' do
+      new_link = Link.create(url: 'https://youtube.com', title: 'Youtube')
+      link = Link.find(new_link.id)
+
+      expect(link.url).to eq "https://youtube.com"
+      expect(link.title).to eq "Youtube"
+    end
+  end
 end

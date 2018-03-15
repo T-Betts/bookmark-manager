@@ -31,4 +31,9 @@ class Link
   def self.update(id, options)
     DatabaseConnection.query("UPDATE links SET url = '#{options[:url]}', title = '#{options[:title]}' WHERE id = '#{id}'")
   end
+
+  def self.find(id)
+    result = DatabaseConnection.query("SELECT * FROM links WHERE id = #{id}")
+    result.map { |link| Link.new(link['id'], link['url'], link['title']) }.first
+  end
 end
