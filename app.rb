@@ -3,35 +3,40 @@ require './lib/link.rb'
 require_relative './lib/database_connection_setup.rb'
 require 'uri'
 require 'sinatra/flash'
+# require './lib/comment.rb'
 
 class BookmarkManager < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
   get '/' do
-    @links = Link.all
-    erb(:index)
+    redirect('/links')
   end
 
-  post '/new_link' do
+  get '/links' do
+    @links = Link.all
+    erb(:"links/index")
+  end
+
+  post '/links/new_link' do
     link = Link.create(url: params['url'], title: params['title'])
     flash[:notice] = "Error: Invalid URL. Please try again." unless link
-    redirect('/')
+    redirect('/links')
   end
 
-  post "/delete_link" do
+  post "/links/delete_link" do
     Link.delete(params['id'])
-    redirect('/')
+    redirect('/links')
   end
 
-  get '/update_link_form' do
+  get '/links/update_link_form' do
     @link = Link.find(params['id'])
-    erb :update_link
+    erb :"links/update_link"
   end
 
-  post '/update-link' do
+  post '/links/update-link' do
     Link.update(params['id'], params)
-    redirect('/')
+    redirect('/links')
   end
 
 

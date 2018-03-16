@@ -9,11 +9,11 @@
       <% @links.each do |link| %>
         <li id="link-<%=link.id%>">
           <a href="<%=link.url%>" target="_blank"><%=link.title%></a>
-            <form action="/delete_link" method="post">
+            <form action="links/delete_link" method="post">
               <input type="hidden" name="id" value="<%= link.id %>">
               <input type="submit" value="Delete">
             </form>
-            <form action="/update_link_form" method="get">
+            <form action="links/update_link_form" method="get">
               <input type="hidden" name="id" value="<%= link.id %>">
               <input type="submit" value="Update">
             </form>
@@ -21,7 +21,7 @@
           </li>
         <% end %>
         <br>
-        <form action="/new_link" method="post">
+        <form action="links/new_link" method="post">
           <label for="url">
             Enter URL
             <input type="text" name="url">

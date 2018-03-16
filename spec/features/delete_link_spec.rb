@@ -8,7 +8,7 @@ feature 'Delete Link' do
       click_button 'Delete'
     end
 
-    expect(current_path).to eq '/'
+    expect(current_path).to eq '/links'
     expect(page).not_to have_content('Test Link')
   end
 end

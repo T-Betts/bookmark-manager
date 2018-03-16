@@ -1,5 +1,7 @@
 require 'database_connection'
 
+require_relative '../lib/database_connection_setup.rb'
+
 describe DatabaseConnection do
 
   describe '#self.setup' do

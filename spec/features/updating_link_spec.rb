@@ -11,7 +11,7 @@ feature 'Updating a link' do
     fill_in('title', with: 'Snakers Academy')
     click_button('Update')
 
-    expect(current_path).to eq '/'
+    expect(current_path).to eq '/links'
     expect(page).not_to have_content 'Test Link'
     expect(page).to have_content 'Snakers Academy'
   end
